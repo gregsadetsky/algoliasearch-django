@@ -318,8 +318,9 @@ class AlgoliaIndex(object):
         """Deletes the record."""
         objectID = self.objectID(instance)
         try:
-            self.__index.delete_object(objectID)
+            result = self.__index.delete_object(objectID)
             logger.info('DELETE %s FROM %s', objectID, self.model)
+            return result
         except AlgoliaException as e:
             if DEBUG:
                 raise e
