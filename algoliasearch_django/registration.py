@@ -123,12 +123,12 @@ class AlgoliaEngine(object):
         https://github.com/algolia/algoliasearch-client-python#update-an-existing-object-in-the-index
         """
         adapter = self.get_adapter_from_instance(instance)
-        adapter.save_record(instance, **kwargs)
+        return adapter.save_record(instance, **kwargs)
 
     def delete_record(self, instance):
         """Deletes the record."""
         adapter = self.get_adapter_from_instance(instance)
-        adapter.delete_record(instance)
+        return adapter.delete_record(instance)
 
     def update_records(self, model, qs, batch_size=1000, **kwargs):
         """
